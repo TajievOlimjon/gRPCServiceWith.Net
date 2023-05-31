@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcClientApp.Protos";
+
+import "google/protobuf/timestamp.proto";
+package student;
+
+message RequestInfo
+{
+	string FirstName=1;
+	string LastName =2;
+	string Email =3;
+	int32 Age=4;
+	google.protobuf.Timestamp BirthDate = 5;
+}
+message StudentInfo
+{
+	string FirstName=1;
+	string LastName =2;
+	string Email =3;
+	int32 Age=4;
+	google.protobuf.Timestamp BirthDate = 5;
+}
+
+message ResponseInfo
+{
+	repeated StudentInfo Students = 1;
+}
+message GetStudentInfoRequest
+{}
+
+message AddStudentResponse
+{
+	bool response=1;
+}
+service Student
+{
+	rpc GetStudentInfo(GetStudentInfoRequest) returns (ResponseInfo);
+	rpc AddStudent(RequestInfo) returns(AddStudentResponse);
+}

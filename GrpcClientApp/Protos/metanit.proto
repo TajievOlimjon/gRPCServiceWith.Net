@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcClientApp.Protos";
+
+package metanit;
+
+message Request
+{
+	string Word=1;
+}
+
+message Response
+{
+	string Word=1;
+	string Translation=2;
+}
+
+service Translator
+{
+	rpc Translate(Request) returns (Response);
+}
