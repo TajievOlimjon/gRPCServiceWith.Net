@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\clientMessageToServer.proto" />
+    <None Remove="Protos\clientServerMessage.proto" />
+    <None Remove="Protos\messenger.proto" />
+    <None Remove="Protos\serverMessageToClient.proto" />
     <None Remove="Protos\student.proto" />
+    <None Remove="Protos\user.proto" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,11 +23,17 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Protobuf Include="Protos\clientMessageToServer.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\clientServerMessage.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\messenger.proto" GrpcServices="Client" />
     <Protobuf Include="Protos\metanit.proto" GrpcServices="Client" />
     <Protobuf Include="Protos\student.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\serverMessageToClient.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\user.proto" GrpcServices="Client" />
   </ItemGroup>
 
 </Project>

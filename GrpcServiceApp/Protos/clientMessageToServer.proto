@@ -1,0 +1,20 @@
+//ѕотокова€ передача   сообщений от клиента на сервер.
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceApp.Protos";
+
+package clientMessageToServer;
+
+service ClientMessageToServer
+{
+	rpc ClientDataStream(stream ClientRequestMessage) returns (ServerResponseMessage);
+}
+
+message ClientRequestMessage
+{
+  string content=1;
+}
+message ServerResponseMessage
+{
+	string content=1;
+}

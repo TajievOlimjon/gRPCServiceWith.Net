@@ -7,13 +7,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\clientMessageToServer.proto" />
+    <None Remove="Protos\clientServerMessage.proto" />
+    <None Remove="Protos\messenger.proto" />
+    <None Remove="Protos\serverMessageToClient.proto" />
     <None Remove="Protos\student.proto" />
+    <None Remove="Protos\user.proto" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.53.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
   </ItemGroup>
   <ItemGroup>
+  	<Protobuf Include="Protos\clientServerMessage.proto" GrpcServices="Server" />
+  	<Protobuf Include="Protos\clientMessageToServer.proto" GrpcServices="Server" />
+  	<Protobuf Include="Protos\messenger.proto" GrpcServices="Server" />
+  	<Protobuf Include="Protos\serverMessageToClient.proto" GrpcServices="Server" />
+  	<Protobuf Include="Protos\user.proto" GrpcServices="Server" />
   	<Protobuf Include="Protos\student.proto" GrpcServices="Server" />
   	<Protobuf Include="Protos\metanit.proto" GrpcServices="Server" />
   </ItemGroup>

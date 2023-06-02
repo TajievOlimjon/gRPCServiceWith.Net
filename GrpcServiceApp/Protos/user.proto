@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceApp.Protos";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+package user;
+
+message CreateUserRequest{
+  string name=1;
+  int32 age = 2;
+}
+ 
+message GetUserRequest{
+  int32 id =1;
+}
+ 
+message UpdateUserRequest{
+  int32 id=1;
+  string name=2;
+  int32 age = 3;
+}
+ 
+message DeleteUserRequest{
+  int32 id =1;
+}
+ 
+message GetAllUsers{
+  repeated User Users = 1;
+}
+ 
+message User
+{
+  int32 id = 1;
+  string name=2;
+  int32 age = 3;
+}
+service UserServie
+{
+  rpc ListUsers(google.protobuf.Empty) returns (GetAllUsers);
+  rpc GetUser(GetUserRequest) returns (User);
+  rpc CreateUser(CreateUserRequest) returns (User);
+  rpc UpdateUser(UpdateUserRequest) returns (User);
+  rpc DeleteUser(DeleteUserRequest) returns (User);
+}

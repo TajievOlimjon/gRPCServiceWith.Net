@@ -1,0 +1,21 @@
+//Двунаправленной потоковой передачи  клиент и сервер
+//клиент и сервер могут одновременно посылать и получать поток сообщений.
+syntax = "proto3";
+
+option csharp_namespace = "GrpcClientApp.Protos";
+
+package clientServerMessage;
+
+service ClientServerMessage
+{
+	rpc ClientServerDataStream(stream ClientServerRequestMessage) returns (stream ClientServerResponseMessage);
+}
+
+message ClientServerRequestMessage
+{
+  string content=1;
+}
+message ClientServerResponseMessage
+{
+	string content=1;
+}

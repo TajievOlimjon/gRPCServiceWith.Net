@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceAppMessenger.Protos";
+
+package messenger;
+
+message MessengerRequest
+{}
+
+message MessengerResponse
+{
+	string content=1;
+}
+
+service Messenger
+{
+	rpc SendMessage(MessengerRequest) returns (MessengerResponse);
+}
